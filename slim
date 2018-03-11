@@ -1,0 +1,57 @@
+#!/usr/bin/env php
+<?php
+/**
+ * =============================================================================
+ * Project: Boilerplate slim
+ * Created Date: 2017-11-08, 09:56:27
+ * Author: Przemysław Drzewicki <przemyslaw.drzewicki@gmail.com>
+ * =============================================================================
+ * Last Modified: 2017-11-29, 12:27:56
+ * Modified By: Przemysław Drzewicki
+ * =============================================================================
+ * Copyright (c) 2017 webonweb
+ * =============================================================================
+ */
+
+//==============================================================================
+// Loading dependencies.
+//==============================================================================
+require __DIR__ . '/vendor/autoload.php';
+use Symfony\Component\Console\Application;
+
+// =============================================================================
+// Load commands.
+// =============================================================================
+use App\Console\Commands\Model\Command as ModelCommand;
+use App\Console\Commands\Controller\Command as ControllerCommand;
+
+/*
+|--------------------------------------------------------------------------
+| Create application core.
+|--------------------------------------------------------------------------
+|
+| Initialization of application core.
+|
+*/
+$application = new Application();
+
+/*
+|--------------------------------------------------------------------------
+| Add command to application.
+|--------------------------------------------------------------------------
+|
+| Add new commands to application.
+|
+*/
+$application->add(new ModelCommand());
+$application->add(new ControllerCommand());
+
+/*
+|--------------------------------------------------------------------------
+| Run application.
+|--------------------------------------------------------------------------
+|
+| Start run application.
+|
+*/
+$application->run();
